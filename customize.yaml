@@ -14,8 +14,15 @@ light.katto:
 light.ruokapoyta:
   hidden: true
   emulated_hue: false
+group.all_automations:
+  emulated_hue: false
 group.all_lights:
-  hidden: true
+  emulated_hue: false
+group.devices:
   emulated_hue: false
 media_player.sony_bravia_tv:
   emulated_hue_name: TV
+automation.tv_on:
+  hidden: true
+automation.tv_off:
+  hidden: true

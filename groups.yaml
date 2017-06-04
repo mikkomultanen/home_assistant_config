@@ -4,7 +4,7 @@ livingroom:
     - light.olohuonejalkalamppu
     - light.olohuonepallo
 devices:
-  name: devices
+  name: Devices
   control: hidden
   entities:
     - light.musa
