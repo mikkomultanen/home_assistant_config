@@ -1,0 +1,21 @@
+light.olohuonejalkalamppu:
+  friendly_name: Living room floor lamp
+light.olohuonepallo:
+  friendly_name: Living room table lamp
+light.musa:
+  friendly_name: Music system
+  icon: mdi:speaker
+light.tietokone:
+  friendly_name: PC
+  icon: mdi:desktop-tower
+light.katto:
+  hidden: true
+  emulated_hue: false
+light.ruokapoyta:
+  hidden: true
+  emulated_hue: false
+group.all_lights:
+  hidden: true
+  emulated_hue: false
+media_player.sony_bravia_tv:
+  emulated_hue_name: TV

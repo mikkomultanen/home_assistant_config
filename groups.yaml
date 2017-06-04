@@ -1,0 +1,11 @@
+livingroom:
+  name: Living room
+  entities:
+    - light.olohuonejalkalamppu
+    - light.olohuonepallo
+devices:
+  name: devices
+  control: hidden
+  entities:
+    - light.musa
+    - light.tietokone
