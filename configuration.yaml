@@ -59,6 +59,7 @@ tts:
 
 group: !include groups.yaml
 automation: !include automations.yaml
+script: !include scripts.yaml
 
 emulated_hue:
   host_ip: 10.0.1.12
@@ -72,3 +73,35 @@ light:
 media_player:
   - platform: braviatv
     host: 10.0.1.23
+
+switch:
+  - platform: template
+    switches:
+      musa:
+        value_template: "{{ is_state('light.musa', 'on') }}"
+        turn_on:
+          service: light.turn_on
+          entity_id: light.musa
+        turn_off:
+          service: light.turn_off
+          entity_id: light.musa
+        entity_id: light.musa
+      tietokone:
+        value_template: "{{ is_state('light.tietokone', 'on') }}"
+        turn_on:
+          service: light.turn_on
+          entity_id: light.tietokone
+        turn_off:
+          service: light.turn_off
+          entity_id: light.tietokone
+        entity_id: light.tietokone
+      sony_bravia_tv:
+        friendly_name: TV
+        value_template: "{{ is_state('media_player.sony_bravia_tv', 'on') }}"
+        turn_on:
+          service: media_player.turn_on
+          entity_id: media_player.sony_bravia_tv
+        turn_off:
+          service: media_player.turn_off
+          entity_id: media_player.sony_bravia_tv
+        entity_id: media_player.sony_bravia_tv

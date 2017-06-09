@@ -3,9 +3,3 @@ livingroom:
   entities:
     - light.olohuonejalkalamppu
     - light.olohuonepallo
-devices:
-  name: Devices
-  control: hidden
-  entities:
-    - light.musa
-    - light.tietokone
