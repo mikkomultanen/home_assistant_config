@@ -1,19 +1,48 @@
-- id: tv_on
-  alias: TV on
+- alias: TV on/off
+  hide_entity: true
   trigger:
     platform: state
     entity_id: media_player.sony_bravia_tv
-    to: 'on'
   action:
-    - service: light.turn_on
-      entity_id: light.musa
+    service_template: "{% if is_state(trigger.to_state.state, 'off') %} switch.turn_off {% else %}  switch.turn_on {%endif %}"
+    data_template:
+      entity_id: "switch.musa"
 
-- id: tv_off
-  alias: TV off
+- alias: Left rocker
+  hide_entity: true
   trigger:
-    platform: state
-    entity_id: media_player.sony_bravia_tv
-    to: 'off'
+    platform: event
+    event_type: button_pressed
+    event_data:
+      which: 1
+      pushed: 1
   action:
-    - service: light.turn_off
-      entity_id: light.musa
+    service_template: "{% if trigger.event.data.onoff %} switch.turn_off {% else %}  switch.turn_on {%endif %}"
+    data_template:
+      entity_id: "switch.musa"
+
+- alias: Right rocker
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      which: 0
+      pushed: 1
+  action:
+    service_template: "{% if trigger.event.data.onoff %} homeassistant.turn_off {% else %}  homeassistant.turn_on {%endif %}"
+    data_template:
+      entity_id: "group.livingroom"
+
+- alias: Both rockers
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      which: 10
+      pushed: 1
+  action:
+    service_template: "{% if trigger.event.data.onoff %} switch.turn_off {% else %}  switch.turn_on {%endif %}"
+    data_template:
+      entity_id: "switch.tietokone"

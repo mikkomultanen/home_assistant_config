@@ -13,17 +13,9 @@ light.ruokapoyta:
   friendly_name: Dining table lamp
   homebridge_name: Dining table
   icon: mdi:ceiling-light
-light.musa:
-  hidden: true
-  emulated_hue: false
-  homebridge_hidden: true
 switch.musa:
   friendly_name: Music system
   icon: mdi:speaker
-light.tietokone:
-  hidden: true
-  emulated_hue: false
-  homebridge_hidden: true
 switch.tietokone:
   friendly_name: PC
   icon: mdi:desktop-tower
@@ -48,17 +40,9 @@ switch.sony_bravia_tv:
   emulated_hue: false
   homebridge_name: TV
   icon: mdi:television
-automation.tv_on:
-  hidden: true
-automation.tv_off:
-  hidden: true
 script.turn_on_apple_tv:
   emulated_hue: true
 binary_sensor.enocean_binary_sensor_1:
   hidden: true
-  emulated_hue: false
-  homebridge_hidden: true
 binary_sensor.enocean_binary_sensor_2:
   hidden: true
-  emulated_hue: false
-  homebridge_hidden: true
