@@ -46,6 +46,11 @@ history:
 # View all events in a logbook
 logbook:
 
+logger:
+#  default: critical
+#  logs:
+#    homeassistant.components.enocean: debug
+
 # Track the sun
 #sun:
 
@@ -66,13 +71,25 @@ emulated_hue:
   listen_port: 8300
   type: alexa
 
-light:
-  - platform: houmio
-    sitekey: !secret sitekey
-
 media_player:
   - platform: braviatv
     host: 10.0.1.23
+
+enocean:
+  device: /dev/ttyAMA0
+
+binary_sensor:
+  - platform: enocean
+    id: [0xFE,0xFD,0x8A,0x5A]
+    name: enocean_binary_sensor_1
+  - platform: enocean
+    id: [0xFE,0xFD,0x52,0x0A]
+    name: enocean_binary_sensor_2
+
+tradfri:
+  host: 10.0.1.11
+  api_key: !secret api_key
+  allow_tradfri_groups: false
 
 switch:
   - platform: template

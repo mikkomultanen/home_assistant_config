@@ -1,5 +1,5 @@
 livingroom:
   name: Living room
   entities:
-    - light.olohuonejalkalamppu
-    - light.olohuonepallo
+    - light.jalkalamppu
+    - light.pallo

@@ -1,9 +1,18 @@
-light.olohuonejalkalamppu:
+light.jalkalamppu:
   friendly_name: Living room floor lamp
   homebridge_name: Floor
-light.olohuonepallo:
+  icon: mdi:lamp
+light.pallo:
   friendly_name: Living room table lamp
   homebridge_name: Table
+light.katto:
+  friendly_name: Hallway ceiling lamp
+  homebridge_name: Hallway ceiling
+  icon: mdi:ceiling-light
+light.ruokapoyta:
+  friendly_name: Dining table lamp
+  homebridge_name: Dining table
+  icon: mdi:ceiling-light
 light.musa:
   hidden: true
   emulated_hue: false
@@ -18,12 +27,6 @@ light.tietokone:
 switch.tietokone:
   friendly_name: PC
   icon: mdi:desktop-tower
-light.katto:
-  hidden: true
-  emulated_hue: false
-light.ruokapoyta:
-  hidden: true
-  emulated_hue: false
 group.all_automations:
   emulated_hue: false
   homebridge_hidden: true
@@ -51,3 +54,11 @@ automation.tv_off:
   hidden: true
 script.turn_on_apple_tv:
   emulated_hue: true
+binary_sensor.enocean_binary_sensor_1:
+  hidden: true
+  emulated_hue: false
+  homebridge_hidden: true
+binary_sensor.enocean_binary_sensor_2:
+  hidden: true
+  emulated_hue: false
+  homebridge_hidden: true
