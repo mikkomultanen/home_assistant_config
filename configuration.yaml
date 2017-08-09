@@ -88,21 +88,6 @@ tradfri:
   api_key: !secret api_key
   allow_tradfri_groups: false
 switch:
-  - platform: flux
-    lights:
-      - light.jalkalamppu
-      - light.pallo
-      - light.katto
-      - light.ruokapoyta
-    name: Fluxer
-    start_time: '7:00'
-    stop_time: '19:00'
-    start_colortemp: 4000
-    sunset_colortemp: 2200
-    stop_colortemp: 2200
-    brightness: 200
-    disable_brightness_adjust: True
-    mode: mired
   - platform: tplink
     host: 10.0.1.9
     name: musa

@@ -46,3 +46,91 @@
     service_template: "{% if trigger.event.data.onoff %} switch.turn_off {% else %}  switch.turn_on {%endif %}"
     data_template:
       entity_id: "switch.tietokone"
+
+- alias: Flux jalkalamppu
+  hide_entity: true
+  trigger:
+    - platform: time
+      at: '7:00:00'
+    - platform: time
+      at: '16:00:00'
+    - platform: time
+      at: '20:00:00'
+    - platform: state
+      entity_id: light.jalkalamppu
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: light.jalkalamppu
+    state: 'on'
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: "light.jalkalamppu"
+      brightness: "{% if now().hour < 7 %} 150 {% elif now().hour < 16 %} 255 {% elif now().hour < 20 %}255 {% else %} 150 {% endif %}"
+      kelvin: "{% if now().hour < 7 %} 2200 {% elif now().hour < 16 %} 4000 {% elif now().hour < 18 %} 2700 {% else %} 2200 {% endif %}"
+
+- alias: Flux pallo
+  hide_entity: true
+  trigger:
+    - platform: time
+      at: '7:00:00'
+    - platform: time
+      at: '16:00:00'
+    - platform: time
+      at: '20:00:00'
+    - platform: state
+      entity_id: light.pallo
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: light.pallo
+    state: 'on'
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: "light.pallo"
+      brightness: "{% if now().hour < 7 %} 150 {% elif now().hour < 16 %} 255 {% elif now().hour < 20 %}255 {% else %} 150 {% endif %}"
+      kelvin: "{% if now().hour < 7 %} 2200 {% elif now().hour < 16 %} 4000 {% elif now().hour < 18 %} 2700 {% else %} 2200 {% endif %}"
+
+- alias: Flux ruokapoyta
+  hide_entity: true
+  trigger:
+    - platform: time
+      seconds: '/30'
+    - platform: state
+      entity_id: light.ruokapoyta
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: light.ruokapoyta
+    state: 'on'
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: "light.ruokapoyta"
+      brightness: "{% if now().hour < 7 %} 150 {% elif now().hour < 16 %} 255 {% elif now().hour < 20 %} 255 {% else %} 150 {% endif %}"
+      kelvin: "{% if now().hour < 7 %} 2200 {% elif now().hour < 16 %} 4000 {% elif now().hour < 18 %} 2700 {% else %} 2200 {% endif %}"
+
+- alias: Flux katto
+  hide_entity: true
+  trigger:
+    - platform: time
+      seconds: '/30'
+    - platform: state
+      entity_id: light.katto
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: light.katto
+    state: 'on'
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: "light.katto"
+      brightness: "{% if now().hour < 7 %} 50 {% elif now().hour < 16 %} 255 {% elif now().hour < 20 %}150 {% else %} 50 {% endif %}"
+      kelvin: "{% if now().hour < 7 %} 2200 {% elif now().hour < 16 %} 4000 {% elif now().hour < 18 %} 2700 {% else %} 2200 {% endif %}"
