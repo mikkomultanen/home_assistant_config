@@ -14,7 +14,7 @@ light.ruokapoyta:
   homebridge_name: Dining table
   icon: mdi:ceiling-light
 switch.musa:
-  friendly_name: Music system
+  friendly_name: Speakers
   icon: mdi:speaker
 switch.tietokone:
   friendly_name: PC
@@ -35,13 +35,12 @@ group.livingroom:
   homebridge_hidden: true
 media_player.sony_bravia_tv:
   emulated_hue_name: TV
-  homebridge_hidden: true
-switch.sony_bravia_tv:
-  emulated_hue: false
   homebridge_name: TV
-  icon: mdi:television
-script.turn_on_apple_tv:
-  emulated_hue: true
+  homebridge_media_player_switch: on_off
+media_player.yamaha_receiver:
+  emulated_hue_name: Yamaha
+  homebridge_name: Yamaha
+  homebridge_media_player_switch: on_off
 binary_sensor.enocean_binary_sensor_1:
   hidden: true
 binary_sensor.enocean_binary_sensor_2:

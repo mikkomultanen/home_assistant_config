@@ -1,12 +1,49 @@
-- alias: TV on/off
+- alias: Yamaha on/off
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: media_player.yamaha_receiver
+  action:
+    service_template: "{% if (trigger.to_state.state == 'off') %} switch.turn_off {% else %}  switch.turn_on {%endif %}"
+    data_template:
+      entity_id: "switch.musa"
+
+- alias: TV on
   hide_entity: true
   trigger:
     platform: state
     entity_id: media_player.sony_bravia_tv
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: media_player.yamaha_receiver
+    state: 'off'
   action:
-    service_template: "{% if (trigger.to_state.state == 'on') %} switch.turn_on {% else %}  switch.turn_off {%endif %}"
-    data_template:
-      entity_id: "switch.musa"
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.yamaha_receiver
+    - wait_template: "{{ states.media_player.yamaha_receiver.state == 'on' }}"
+      timeout: 00:00:10
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.yamaha_receiver
+        source: optical
+
+- alias: TV off
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: media_player.sony_bravia_tv
+    from: 'on'
+    to: 'off'
+  condition:
+    condition: template
+    value_template: '{{ is_state_attr("media_player.yamaha_receiver","source","optical") }}'
+  action:
+    service: media_player.turn_off
+    data:
+      entity_id: media_player.yamaha_receiver
 
 - alias: Left rocker
   hide_entity: true
@@ -17,9 +54,9 @@
       which: 1
       pushed: 1
   action:
-    service_template: "{% if trigger.event.data.onoff %} switch.turn_off {% else %}  switch.turn_on {%endif %}"
+    service_template: "{% if trigger.event.data.onoff %} homeassistant.turn_off {% else %}  homeassistant.turn_on {%endif %}"
     data_template:
-      entity_id: "switch.musa"
+      entity_id: "media_player.yamaha_receiver"
 
 - alias: Right rocker
   hide_entity: true
