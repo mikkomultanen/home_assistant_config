@@ -105,9 +105,9 @@
         {% if now().hour < 6 %}
           150
         {% elif now().hour < 16 %}
-          255
+          254
         {% else %}
-          {{ ((255 - 150) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 150) | int }}
+          {{ ((254 - 150) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 150) | int }}
         {% endif %}
       kelvin: >
         {% if now().hour < 6 %}
@@ -141,9 +141,9 @@
         {% if now().hour < 6 %}
           150
         {% elif now().hour < 16 %}
-          255
+          254
         {% else %}
-          {{ ((255 - 150) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 150) | int }}
+          {{ ((254 - 150) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 150) | int }}
         {% endif %}
       kelvin: >
         {% if now().hour < 6 %}
@@ -177,9 +177,117 @@
         {% if now().hour < 6 %}
           150
         {% elif now().hour < 16 %}
-          255
+          254
         {% else %}
-          {{ ((255 - 150) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 150) | int }}
+          {{ ((254 - 150) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 150) | int }}
+        {% endif %}
+      kelvin: >
+        {% if now().hour < 6 %}
+          2200
+        {% elif now().hour < 16 %}
+          4000
+        {% elif now().hour < 18 %}
+          2700
+        {% else %}
+          2200
+        {% endif %}
+
+- alias: Flux spotti 1
+  hide_entity: false
+  trigger:
+    - platform: time
+      seconds: '/30'
+    - platform: state
+      entity_id: light.spotti_1
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: light.spotti_1
+    state: 'on'
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: "light.spotti_1"
+      brightness: >
+        {% if now().hour < 6 %}
+          150
+        {% elif now().hour < 16 %}
+          254
+        {% else %}
+          {{ ((254 - 150) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 150) | int }}
+        {% endif %}
+      kelvin: >
+        {% if now().hour < 6 %}
+          2200
+        {% elif now().hour < 16 %}
+          4000
+        {% elif now().hour < 18 %}
+          2700
+        {% else %}
+          2200
+        {% endif %}
+
+- alias: Flux spotti 2
+  hide_entity: false
+  trigger:
+    - platform: time
+      seconds: '/30'
+    - platform: state
+      entity_id: light.spotti_2
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: light.spotti_2
+    state: 'on'
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: "light.spotti_2"
+      brightness: >
+        {% if now().hour < 6 %}
+          150
+        {% elif now().hour < 16 %}
+          254
+        {% else %}
+          {{ ((254 - 150) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 150) | int }}
+        {% endif %}
+      kelvin: >
+        {% if now().hour < 6 %}
+          2200
+        {% elif now().hour < 16 %}
+          4000
+        {% elif now().hour < 18 %}
+          2700
+        {% else %}
+          2200
+        {% endif %}
+
+- alias: Flux spotti 3
+  hide_entity: false
+  trigger:
+    - platform: time
+      seconds: '/30'
+    - platform: state
+      entity_id: light.spotti_3
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: light.spotti_3
+    state: 'on'
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: "light.spotti_3"
+      brightness: >
+        {% if now().hour < 6 %}
+          150
+        {% elif now().hour < 16 %}
+          254
+        {% else %}
+          {{ ((254 - 150) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 150) | int }}
         {% endif %}
       kelvin: >
         {% if now().hour < 6 %}
@@ -213,9 +321,9 @@
         {% if now().hour < 6 %}
           50
         {% elif now().hour < 16 %}
-          255
+          254
         {% else %}
-          {{ ((255 - 50) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 50) | int }}
+          {{ ((254 - 50) * (1 - ((now().hour + now().minute/60.0) - 16.0) / 8.0) + 50) | int }}
         {% endif %}
       kelvin: >
         {% if now().hour < 6 %}

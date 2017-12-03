@@ -13,6 +13,18 @@ light.ruokapoyta:
   friendly_name: Dining table lamp
   homebridge_name: Dining table
   icon: mdi:ceiling-light
+light.spotti_1:
+  friendly_name: Living room spotlight 1
+  homebridge_hidden: true
+  icon: mdi:spotlight-beam
+light.spotti_2:
+  friendly_name: Living room spotlight 2
+  homebridge_hidden: true
+  icon: mdi:spotlight-beam
+light.spotti_3:
+  friendly_name: Living room spotlight 3
+  homebridge_hidden: true
+  icon: mdi:spotlight-beam
 switch.musa:
   friendly_name: Speakers
   icon: mdi:speaker
