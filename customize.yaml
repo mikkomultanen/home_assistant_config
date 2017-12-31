@@ -1,3 +1,9 @@
+light.eteinen:
+  hidden: true
+light.keittio:
+  hidden: true
+light.olohuone:
+  hidden: true
 light.jalkalamppu:
   friendly_name: Living room floor lamp
   homebridge_name: Floor
@@ -49,7 +55,7 @@ media_player.sony_bravia_tv:
   emulated_hue_name: TV
   homebridge_name: TV
   homebridge_media_player_switch: on_off
-media_player.yamaha_receiver:
+media_player.living_room_main:
   emulated_hue_name: Yamaha
   homebridge_name: Yamaha
   homebridge_media_player_switch: on_off
