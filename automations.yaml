@@ -8,43 +8,6 @@
     data_template:
       entity_id: "switch.musa"
 
-- alias: TV on
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: media_player.sony_bravia_tv
-    from: 'off'
-    to: 'on'
-  condition:
-    condition: state
-    entity_id: media_player.living_room_main
-    state: 'off'
-  action:
-    - service: media_player.turn_on
-      data:
-        entity_id: media_player.living_room_main
-    - wait_template: "{{ states.media_player.living_room_main.state == 'on' }}"
-      timeout: 00:00:10
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.living_room_main
-        source: optical
-
-- alias: TV off
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: media_player.sony_bravia_tv
-    from: 'on'
-    to: 'off'
-  condition:
-    condition: template
-    value_template: '{{ is_state_attr("media_player.living_room_main","source","optical") }}'
-  action:
-    service: media_player.turn_off
-    data:
-      entity_id: media_player.living_room_main
-
 - alias: Left rocker
   hide_entity: true
   trigger:
